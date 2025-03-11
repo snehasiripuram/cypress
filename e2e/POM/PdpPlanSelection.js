@@ -16,7 +16,7 @@ class PdpPlanSelection {
     sortplanele='.mat-icon'    //this is beside the filter option 
     sortplanarrowele='.mat-select-arrow'
     selectsortplanele='#mat-option-45 > .mat-option-text'
-    seelctwellcareplanele='#mat-checkbox-167 > .mat-checkbox-layout > .mat-checkbox-inner-container'
+    selectwellcareplanele='#mat-checkbox-167 > .mat-checkbox-layout > .mat-checkbox-inner-container'
     doneele='.button-container > .mat-focus-indicator'
     canclebtnele='.right-container > .mat-raised-button'
     
@@ -63,6 +63,25 @@ class PdpPlanSelection {
     clickFliterexpansion(){
         cy.get(this.fliterexpansionarrowele).click()
     }
+    clickSortPlan(){
+        cy.get(this.sortplanele).click()
+    }
+    clickSortplanArrow(){
+        cy.get(this.sortplanarrowele).click()
+    }
+    selectSortplan(){
+    cy.get(this.selectsortplanele).click()
+    }
+    selectWellcarePlan(){
+        cy.get(this.selectwellcareplanele).click()
+    }
+    clickDoneBtn(){
+        cy.get(this.doneele).click()
+    }
+    clickCancleBtn(){
+        cy.get(this.canclebtnele).click()
+    }
+
 
 
 
