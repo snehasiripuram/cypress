@@ -70,6 +70,7 @@ describe("Planselection",() =>{
         cy.wait(1000)
         ph.clickNextbtn()
         cy.wait(1000)
+        
 
 
 
