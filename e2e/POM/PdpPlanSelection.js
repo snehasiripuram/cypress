@@ -81,6 +81,10 @@ class PdpPlanSelection {
     clickCancleBtn(){
         cy.get(this.canclebtnele).click()
     }
+}
+ export default PdpPlanSelection
+
+
 
 
 
