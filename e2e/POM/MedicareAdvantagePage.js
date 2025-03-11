@@ -14,6 +14,5 @@ class MedicareAdvantagePage {
     clickBackbtn(){
         cy.get(this.backbtnele).click()
     }
-
 }
 export default MedicareAdvantagePage

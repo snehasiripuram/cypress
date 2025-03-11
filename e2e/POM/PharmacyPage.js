@@ -9,7 +9,6 @@ class PharmacyPage{
     AddressfindpharmacyELe='.form-field-container-col2 > :nth-child(3) > .mat-focus-indicator'
     distanceele='#mat-input-12'
     AddressphramcynameEle='#mat-input-11'
-    //Zipcodepharamcyele='#mat-input-15'
     selecttheziphistoryele='#mat-option-21 > .mat-option-text'
     nextpageBtnEle=':nth-child(2) > .paginator-wrapper > .mat-paginator > .mat-paginator-outer-container > .mat-paginator-container > .mat-paginator-range-actions > .mat-paginator-navigation-next'
     lastpageBtnEle=':nth-child(2) > .paginator-wrapper > .mat-paginator > .mat-paginator-outer-container > .mat-paginator-container > .mat-paginator-range-actions > .mat-paginator-navigation-last'
@@ -105,8 +104,6 @@ class PharmacyPage{
     checkPharmacyagaininaddress(){
         cy.get(this.checkpharmacyagainfromaddressele).click()
     }
-
-
 
 }
 export default PharmacyPage
