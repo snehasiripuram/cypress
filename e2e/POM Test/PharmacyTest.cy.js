@@ -1,10 +1,10 @@
 
-import LoginPage from "../POM/LoginPage"
-import Landingpage from "../POM/LandingPage"
-import ProfilePage from "../POM/ProfilePage"
-import DrugPreference from "../POM/DrugPreference"
-import DrugSelect from "../POM/DrugSelect"
-import PharmacyPage from "../POM/PharmacyPage"
+import LoginPage from "../Pages/LoginPage"
+import Landingpage from "../Pages/LandingPage"
+import ProfilePage from "../Pages/ProfilePage"
+import DrugPreference from "../Pages/DrugPreference"
+import DrugSelect from "../Pages/DrugSelect"
+import PharmacyPage from "../Pages/PharmacyPage"
 describe('PDP',() => {
     it('test1',() =>{
     cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/landing-page')
@@ -12,8 +12,8 @@ describe('PDP',() => {
     const landingpg= new Landingpage
     const Ppage= new ProfilePage
     const drugpreference= new DrugPreference
-    login.enterUsername('valli@gmail.com')
-    login.enterPassword('sri')
+    login.enterUsername("testuser@gmail.com")
+    login.enterPassword("user123")
     login.clickLoginbtn()
     cy.wait(1000)
     landingpg.clickRecommendation()

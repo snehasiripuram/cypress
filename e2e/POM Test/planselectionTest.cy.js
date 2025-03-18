@@ -1,22 +1,30 @@
 
-import LoginPage from "../POM/LoginPage";
-import Landingpage from "../POM/LandingPage";
-import ProfilePage from "../POM/ProfilePage";
-import DrugPreference from "../POM/DrugPreference";
-import DrugSelect from "../POM/DrugSelect";
-import PharmacySelect from "../POM/PharmacySelect";
+import LoginPage from "../Pages/LoginPage";
+import Landingpage from "../Pages/LandingPage";
+import ProfilePage from "../Pages/ProfilePage";
+import DrugPreference from "../Pages/DrugPreference";
+import DrugSelect from "../Pages/DrugSelect";
+import PharmacySelect from "../Pages/PharmacySelect";
+import PdpPlanSelection from "../Pages/PdpPlanSelection";
 
 
 describe("Planselection",() =>{
     it('Test1',() => {
-        cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/landing-page')
+        cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/login')
         const login= new LoginPage()
         login.enterUsername('valli@gmail.com')
         login.enterPassword('sri')
         login.clickLoginbtn()
+   
+    
+    
         const landingpage= new Landingpage()
         cy.wait(1000)
         landingpage.clickRecommendation()
+ 
+
+    
+
         const Ppage= new ProfilePage()
         Ppage.EnterEmail('siri21@gmail.com')
         cy.wait(1000)
@@ -37,10 +45,13 @@ describe("Planselection",() =>{
         Ppage.ClickMagiTier()
         cy.wait(1000)
         Ppage.ClickNext()
+   
         const drugpreference= new DrugPreference
         drugpreference.clickYesbutton()
         cy.wait(1000)
         drugpreference.Clicknextbtn()
+    
+
         const drugselect= new DrugSelect
         drugselect.clickBrowsedrug()
         cy.wait(1000)
@@ -57,6 +68,8 @@ describe("Planselection",() =>{
         drugselect.clickAddtodruglist()
         cy.wait(1000)
         drugselect.clickDoneaddingdrug()
+    
+
         const ph= new PharmacySelect
         ph.enterZipcode(80924)
         cy.wait(1000)
@@ -70,6 +83,45 @@ describe("Planselection",() =>{
         cy.wait(1000)
         ph.clickNextbtn()
         cy.wait(1000)
+    
+        const PdpPs = new PdpPlanSelection()
+        PdpPs.clickPdpBtn()
+        cy.wait(1000)
+        PdpPs.clickFilterplanBtn()
+        cy.wait(1000)
+        PdpPs.clickInsuranceCarrierArrow()
+        cy.wait(1000)
+        PdpPs.selectAtenaPlanfrominsurancefilter()
+        cy.wait(1000)
+        PdpPs.checkSilverscriptplan()
+        cy.wait(3000)
+        PdpPs.checkSilverscriptplan()
+        cy.wait(3000)
+        PdpPs.clickResetBtn()
+        cy.wait(1000)
+        PdpPs.clickStarRatingFilter()
+        cy.wait(1000)
+        PdpPs.selectStarRating()
+        cy.wait(1000)
+        PdpPs.checkPlanfromstarrating()
+        cy.wait(1000)
+        PdpPs.clickDrugCoverage()
+        cy.wait(1000)
+        PdpPs.SelectDrugCoveragefromfilter()
+        cy.wait(1000)
+        PdpPs.verifyLocationSelector('Location:colorado')
+        cy.wait(1000)
+       
+
+
+
+
+
+
+    })
+
+
+   
         
 
 
@@ -92,5 +144,8 @@ describe("Planselection",() =>{
 
 
 
+
+
+
 })  
-    })
+

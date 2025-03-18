@@ -1,13 +1,14 @@
 class PdpPlanSelection {
+    //noSelectionMessage=':nth-child(1) > .no-selection > span'//assertion 
     pdpelement='.selected-container > :nth-child(1) > .mat-focus-indicator'
     filterplanEle='[mattooltip="Filter Plan"]'
-    insurancecarrierele='#mat-select-48 > .mat-select-trigger > .mat-select-arrow-wrapper'
+    insurancecarrierele='#mat-select-16 > .mat-select-trigger > .mat-select-arrow-wrapper > .mat-select-arrow'
     Atenamedicareplanfromfilterele='#mat-option-27 > .mat-option-text'
     selectsilverscriptplanele='.mat-checkbox-inner-container'
-    starratingele='#mat-select-50 > .mat-select-trigger > .mat-select-arrow-wrapper'
+    starratingele='#mat-select-18 > .mat-select-trigger > .mat-select-arrow-wrapper'
     pickstarratingfromfilterEle='#mat-option-32 > .mat-option-text'
-    selectplanfromstarratingele='#mat-checkbox-96 > .mat-checkbox-layout > .mat-checkbox-inner-container'
-    drugcoverageele='#mat-select-52 > .mat-select-trigger > .mat-select-arrow-wrapper'
+    selectplanfromstarratingele='#mat-checkbox-62 > .mat-checkbox-layout > .mat-checkbox-inner-container'
+    drugcoverageele='#mat-select-20 > .mat-select-trigger > .mat-select-arrow-wrapper'
     selectfromdrugcoveragefilterele='.mat-option-text'
     locationselectorele='.location'    //Assertion for location on PDP plan selection page 
     remaningyearele='span[_ngcontent-exd-c306]' //Assertion for remaning plan years 
@@ -21,8 +22,11 @@ class PdpPlanSelection {
     canclebtnele='.right-container > .mat-raised-button'
     
 
+    //verifyNoSelectionMessage() {
+    //    cy.get(this.noSelectionMessage,{ timeout: 10000 }).should('contain', 'Currently no plan is selected.');
+    //}
     clickPdpBtn(){
-        cy.get(this.pdpelement).click()
+        cy.get(this.pdpelement).click({force:true})
     }
     clickFilterplanBtn(){
         cy.get(this.filterplanEle).click()
@@ -49,7 +53,7 @@ class PdpPlanSelection {
         cy.get(this.drugcoverageele).click()
     }
     SelectDrugCoveragefromfilter(){
-        cy.get(this. selectfromdrugcoveragefilterele).click()
+        cy.get(this.selectfromdrugcoveragefilterele).click()
     }
     verifyLocationSelector(expectedLocation){
         cy.get(this.locationselectorele).should('contain.text',expectedLocation)
@@ -81,5 +85,6 @@ class PdpPlanSelection {
     clickCancleBtn(){
         cy.get(this.canclebtnele).click()
     }
+    
 }
 export default PdpPlanSelection
