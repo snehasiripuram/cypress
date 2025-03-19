@@ -1,9 +1,14 @@
-class Landingpage{
+class LandingPage{
+    
+    recommendation = ".mat-focus-indicator.mat-raised-button.mat-button-base.mat-primary.ng-star-inserted";
+    edit = ".inner-table > .mat-table > tbody > .highlight > .cdk-column-actions > :nth-child(1) > .mat-button-wrapper > .mat-icon"
+   
+    clickRecommedation() {
+        cy.get(this.recommendation).should('exist').should('be.visible').click();
 
-    recommndEle='.button-container > .mat-focus-indicator > .mat-button-wrapper'
-
-    clickRecommendation(){
-        cy.get(this.recommndEle , { timeout: 1000}).click();// extend timeout 
+    }
+    editRecommendationClick() {
+        cy.get(this.edit).should('exist').should('be.visible').click();
     }
 }
-export default Landingpage;
+export default LandingPage;
