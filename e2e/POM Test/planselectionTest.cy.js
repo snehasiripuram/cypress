@@ -1,57 +1,59 @@
+import LoginPage from "../Pages/Login"
+import LandingPage from "../Pages/LandingPage"
+import ProfilePage from "../Pages/ProfilePage"
+import DrugPreference from "../Pages/DrugPreference"
+import DrugSelect from "../Pages/DrugSelect"
+import PharmacyPage from "../Pages/PharmacyPage"
+import PdpPlanSelection from "../Pages/PdpPlanSelectionPage"
 
-import LoginPage from "../Pages/LoginPage";
-import Landingpage from "../Pages/LandingPage";
-import ProfilePage from "../Pages/ProfilePage";
-import DrugPreference from "../Pages/DrugPreference";
-import DrugSelect from "../Pages/DrugSelect";
-import PharmacySelect from "../Pages/PharmacySelect";
-import PdpPlanSelection from "../Pages/PdpPlanSelection";
 
+describe('PharmacyTest', () => {
 
-describe("Planselection",() =>{
-    it('Test1',() => {
-        cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/login')
-        const login= new LoginPage()
-        login.enterUsername('valli@gmail.com')
-        login.enterPassword('sri')
-        login.clickLoginbtn()
-   
-    
-    
-        const landingpage= new Landingpage()
-        cy.wait(1000)
-        landingpage.clickRecommendation()
- 
+    beforeEach(() => {
+        cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/login');
 
-    
+        cy.fixture('LoginFixture').then((data) => {
+            const login= new LoginPage
+            login.enterUsername(data.username)
+            login.enterPassword(data.password)
+            login.clickLoginbtn()
+       });
 
-        const Ppage= new ProfilePage()
+       const recPage = new LandingPage();
+       recPage.clickRecommedation();
+        const Ppage= new ProfilePage
         Ppage.EnterEmail('siri21@gmail.com')
         cy.wait(1000)
         Ppage.ClickhealthArrow()
         Ppage.ClickBestHealth()
         Ppage.EnterName('sneha')
-        Ppage.EnterLifeExpentency('85')
+        cy.wait(1000)
+        Ppage.EnterLifeExpentency('80')
+        cy.wait(1000)
         Ppage.ClickDateFinder()
+        cy.wait(1000)
         Ppage.ClickYear()
+        cy.wait(1000)
         Ppage.ClickMonth()
         Ppage.ClickGenderArrow()
         Ppage.ClickGender()
         cy.wait(1000)
         Ppage.ClickTaxFilling()
-        Ppage.EnterZipcode(80924)
+        cy.wait(1000)
+        Ppage.EnterZipcode(80109)
         Ppage.ClickSearch()
+        cy.wait(1000)
         Ppage.ClickMagiTierArrow()
+        cy.wait(1000)
         Ppage.ClickMagiTier()
         cy.wait(1000)
         Ppage.ClickNext()
-   
+        cy.wait(1000)
         const drugpreference= new DrugPreference
         drugpreference.clickYesbutton()
         cy.wait(1000)
         drugpreference.Clicknextbtn()
-    
-
+        cy.wait(1000)
         const drugselect= new DrugSelect
         drugselect.clickBrowsedrug()
         cy.wait(1000)
@@ -68,84 +70,32 @@ describe("Planselection",() =>{
         drugselect.clickAddtodruglist()
         cy.wait(1000)
         drugselect.clickDoneaddingdrug()
-    
-
-        const ph= new PharmacySelect
-        ph.enterZipcode(80924)
+        const pharmacypg = new PharmacyPage
+        pharmacypg.clickZipcoderadio()
         cy.wait(1000)
-        ph.enterDistance(5)
+        pharmacypg.enterZipcode('80108') 
         cy.wait(1000)
-        ph.clickFindPharmacy()
+        pharmacypg.enterDistance('15')
         cy.wait(1000)
-        ph.clickSelect1stPharmacy()
+        pharmacypg.clickFindPahramcyinzipcode()
         cy.wait(1000)
-        ph.clickSecondPharmacy()
-        cy.wait(1000)
-        ph.clickNextbtn()
-        cy.wait(1000)
-    
-        const PdpPs = new PdpPlanSelection()
-        PdpPs.clickPdpBtn()
-        cy.wait(1000)
-        PdpPs.clickFilterplanBtn()
-        cy.wait(1000)
-        PdpPs.clickInsuranceCarrierArrow()
-        cy.wait(1000)
-        PdpPs.selectAtenaPlanfrominsurancefilter()
-        cy.wait(1000)
-        PdpPs.checkSilverscriptplan()
-        cy.wait(3000)
-        PdpPs.checkSilverscriptplan()
-        cy.wait(3000)
-        PdpPs.clickResetBtn()
-        cy.wait(1000)
-        PdpPs.clickStarRatingFilter()
-        cy.wait(1000)
-        PdpPs.selectStarRating()
-        cy.wait(1000)
-        PdpPs.checkPlanfromstarrating()
-        cy.wait(1000)
-        PdpPs.clickDrugCoverage()
-        cy.wait(1000)
-        PdpPs.SelectDrugCoveragefromfilter()
-        cy.wait(1000)
-        PdpPs.verifyLocationSelector('Location:colorado')
-        cy.wait(1000)
-       
+        pharmacypg.selectPharmacy()
+        pharmacypg.clickNextBtn()
+
+    });
+
+
+
+        it('Test1,verify the "PDP Button',() => {
+            const PdpPs = new PdpPlanSelection
+            PdpPs.clickPdpBtn()
+            cy.wait(1000)
+
+        });
 
 
 
 
 
 
-    })
-
-
-   
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-})  
-
+});

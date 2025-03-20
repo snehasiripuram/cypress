@@ -1,8 +1,8 @@
 import LoginPage from "../Pages/LoginPage"
 import LandingPage from "../Pages/LandingPage"
-import ProfilePage from "../Pages/ProfilePage"
-import DrugPreference from "../Pages/DrugPreference"
-import DrugSelect from "../Pages/DrugSelect"
+import HomePage from "../Pages/HomePage"
+import PreferencePage from "../Pages/PreferencePage"
+import PrescriptionPage from "../Pages/PrescriptionPage"
 import PharmacyPage from "../Pages/PharmacyPage"
 
 
@@ -12,69 +12,59 @@ describe('PharmacyTest', () => {
         cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/login');
 
         cy.fixture('LoginFixture').then((data) => {
-            const login= new LoginPage
-            login.enterUsername(data.username)
-            login.enterPassword(data.password)
-            login.clickLoginbtn()
+            const lPage = new LoginPage();
+            lPage.setUserName(data.username);
+            lPage.setPassword(data.password);
+            lPage.clickLoginBtn();
+            lPage.verifyLogin(); 
        });
 
        const recPage = new LandingPage();
        recPage.clickRecommedation();
-        const Ppage= new ProfilePage
-        Ppage.EnterEmail('siri21@gmail.com')
+
+       const homepage = new HomePage();
+        
+        homepage.enterEmail('siri21@gmail.com');
+        cy.wait(100)
+        homepage.clickhealthArrow();
+        cy.wait(100)
+        homepage.clickGoodHealth();
         cy.wait(1000)
-        Ppage.ClickhealthArrow()
-        Ppage.ClickBestHealth()
-        Ppage.EnterName('sneha')
+        homepage.enterName('sneha');
         cy.wait(1000)
-        Ppage.EnterLifeExpentency('80')
+        homepage.enterLifeexpectancy('80');
         cy.wait(1000)
-        Ppage.ClickDateFinder()
+        homepage.datePickerclick();
         cy.wait(1000)
-        Ppage.ClickYear()
+        homepage.year1957click();
         cy.wait(1000)
-        Ppage.ClickMonth()
-        Ppage.ClickGenderArrow()
-        Ppage.ClickGender()
+        homepage.month1957click();
         cy.wait(1000)
-        Ppage.ClickTaxFilling()
+        homepage.enterZip('80109');
         cy.wait(1000)
-        Ppage.EnterZipcode(80109)
-        Ppage.ClickSearch()
+        homepage.clickSearch();
         cy.wait(1000)
-        Ppage.ClickMagiTierArrow()
+        homepage.nextHomeClick();
         cy.wait(1000)
-        Ppage.ClickMagiTier()
-        cy.wait(1000)
-        Ppage.ClickNext()
-        cy.wait(1000)
-        const drugpreference= new DrugPreference
-        drugpreference.clickYesbutton()
-        cy.wait(1000)
-        drugpreference.Clicknextbtn()
-        cy.wait(1000)
-        const drugselect= new DrugSelect
-        drugselect.clickBrowsedrug()
-        cy.wait(1000)
-        drugselect.clickSelectletter('B')
-        cy.wait(1000)
-        drugselect.clickSelectb()
-        cy.wait(1000)
-        drugselect.clickDrug()
-        cy.wait(1000)   
-        drugselect.clickAdddrug()
-        cy.wait(1000)
-        drugselect.clickBranddrug()
-        cy.wait(1000)
-        drugselect.clickAddtodruglist()
-        cy.wait(1000)
+        const preferencespage=new PreferencePage();
+        preferencespage.clickPreferencesYes();
+        cy.wait(1000);
+        preferencespage.clickNext();
+        cy.wait(1000);
+
+        const drugPage = new PrescriptionPage();
+        drugPage.enterDrug('BACTRIM')
+        drugPage.clickBrand()
+        drugPage.clickAddDrug()
+
         
     });
 
 
         it('Test1,Select Zip code radio button',() => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
@@ -83,8 +73,9 @@ describe('PharmacyTest', () => {
 
 
         it('Test2,Find Pharmacy By Zipcode',() => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
@@ -99,8 +90,9 @@ describe('PharmacyTest', () => {
 
 
         it('Test3,Find Pharmacy By zipcode,Boundary Value tetsing', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
@@ -114,8 +106,9 @@ describe('PharmacyTest', () => {
 
 
         it('Test4,Find Pharmacy By zipcode,leave the zipcode empty,Boundary Value tetsing', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
@@ -127,8 +120,9 @@ describe('PharmacyTest', () => {
         });
 
         it('Test5,Find Pharmacy By zipcode,Give Invalid Zipcode', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
@@ -142,8 +136,9 @@ describe('PharmacyTest', () => {
 
 
         it('Test6,Find Pharmacy By zipcode,give Invalid Zipcode', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
@@ -156,8 +151,9 @@ describe('PharmacyTest', () => {
         });
 
         it('Test7,Find Pharmacy By zipcode,give Invalid zipcode', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
@@ -171,8 +167,9 @@ describe('PharmacyTest', () => {
 
 
         it('Test8,Find Pharmacy By Zip', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
@@ -186,8 +183,9 @@ describe('PharmacyTest', () => {
         });
 
         it('Test9,Find Pharmacy By Zip', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
@@ -201,8 +199,9 @@ describe('PharmacyTest', () => {
         });
 
         it('Test10,Select Address radio button', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickAddressradio()
             cy.wait(1000)
@@ -210,8 +209,9 @@ describe('PharmacyTest', () => {
         });
 
         it('Test11,Find Pharmacy By Address', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickAddressradio()
             cy.wait(1000)
@@ -224,8 +224,9 @@ describe('PharmacyTest', () => {
 
         });
         it('Test12,Search Pharmacy By Invalid Address', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickAddressradio()
             cy.wait(1000)
@@ -238,8 +239,9 @@ describe('PharmacyTest', () => {
         });
 
         it('Test13,Find Pharmacy By blank Address', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickAddressradio()
             cy.wait(1000)
@@ -252,8 +254,9 @@ describe('PharmacyTest', () => {
         });
 
         it('Test14,Find Pharmacy By Name', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
@@ -270,8 +273,9 @@ describe('PharmacyTest', () => {
         
 
         it('Test15,Find Pharmacy By invalid Name', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
@@ -289,8 +293,9 @@ describe('PharmacyTest', () => {
 
 
         it('Test16,Zip code history', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
@@ -305,8 +310,9 @@ describe('PharmacyTest', () => {
 
 
         it('Test17,zip code history feature with incorrect zip code', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
@@ -322,8 +328,9 @@ describe('PharmacyTest', () => {
 
 
         it('Test18,select any zip code from the zip code history dropdown', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
@@ -341,8 +348,9 @@ describe('PharmacyTest', () => {
 
 
         it('Test19,Find Pharmacies By Default Distance', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
@@ -355,8 +363,9 @@ describe('PharmacyTest', () => {
 
 
         it('Test20,Find Pharmacy By Distance', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
@@ -370,8 +379,9 @@ describe('PharmacyTest', () => {
         });
 
         it('Test21, pharmacies with blank values in the Distance field ', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
@@ -386,8 +396,9 @@ describe('PharmacyTest', () => {
 
 
         it('Test22, pharmacies with "character" in the Distance field  ', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
@@ -403,8 +414,9 @@ describe('PharmacyTest', () => {
         
 
         it('Test23, Expand Pharmacies List Next page ', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
@@ -421,8 +433,9 @@ describe('PharmacyTest', () => {
         
 
         it('Test24, Expand Pharmacies List last page ', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
@@ -439,8 +452,9 @@ describe('PharmacyTest', () => {
         
 
         it('Test25, Expand Pharmacies List previous page"  ', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
@@ -459,8 +473,9 @@ describe('PharmacyTest', () => {
 
 
         it('Test26, Expand Pharmacies List First page', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
@@ -480,8 +495,9 @@ describe('PharmacyTest', () => {
 
 
         it('Test27,verify the Item per page', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
@@ -497,8 +513,9 @@ describe('PharmacyTest', () => {
 
 
         it('Test28,Select Pharmacies', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
@@ -521,8 +538,9 @@ describe('PharmacyTest', () => {
 
 
         it('Test29,DeSelect Pharmacies', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
@@ -551,8 +569,9 @@ describe('PharmacyTest', () => {
 
 
         it('Test30,Google map radio button', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
@@ -569,8 +588,9 @@ describe('PharmacyTest', () => {
         });
 
         it('Test31,verify "Next button', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
@@ -587,8 +607,9 @@ describe('PharmacyTest', () => {
         });
 
         it('Test32,verify Back button', () => {
-            const drugselect= new DrugSelect
-            drugselect.clickDoneaddingdrug()
+            const drugPage = new PrescriptionPage();
+            drugPage.clickDoneAddingDrug()
+
             const pharmacypg = new PharmacyPage
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
