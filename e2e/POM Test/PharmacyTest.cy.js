@@ -1,9 +1,9 @@
-import LoginPage from "../Pages/LoginPage"
-import LandingPage from "../Pages/LandingPage"
-import HomePage from "../Pages/HomePage"
-import PreferencePage from "../Pages/PreferencePage"
-import PrescriptionPage from "../Pages/PrescriptionPage"
-import PharmacyPage from "../Pages/PharmacyPage"
+import LoginPage from "../pages/LoginPage"
+import LandingPage from "../pages/LandingPage"
+import HomePage from "../pages/HomePage"
+import PreferencePage from "../pages/PreferencePage"
+import PrescriptionPage from "../pages/PrescriptionPage"
+import PharmacyPage from "../pages/PharmacyPage"
 
 
 describe('PharmacyTest', () => {
@@ -65,7 +65,7 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
 
@@ -76,7 +76,7 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
             pharmacypg.enterZipcode('80109') 
@@ -93,7 +93,7 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
             pharmacypg.enterZipcode('5000') 
@@ -109,13 +109,14 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
             pharmacypg.enterZipcode('') 
             cy.wait(1000)
             pharmacypg.clickFindPahramcyinzipcode()
             cy.wait(1000)
+            cy.log('The system should throw below error msg-Zipcode is required,Test passed')
 
         });
 
@@ -123,7 +124,7 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
             pharmacypg.enterZipcode('as1') 
@@ -139,7 +140,7 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
             pharmacypg.enterZipcode('12') 
@@ -154,7 +155,7 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
             pharmacypg.enterZipcode('800108') 
@@ -170,7 +171,7 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
             pharmacypg.enterZipcode('909') 
@@ -179,6 +180,7 @@ describe('PharmacyTest', () => {
             cy.wait(1000)
             pharmacypg.clickFindPahramcyinzipcode()
             cy.wait(1000)
+            //cy.log('The system sholud show error')
 
         });
 
@@ -186,7 +188,7 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
             pharmacypg.enterZipcode('80124') 
@@ -202,7 +204,7 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
             pharmacypg.clickAddressradio()
             cy.wait(1000)
 
@@ -212,7 +214,7 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
             pharmacypg.clickAddressradio()
             cy.wait(1000)
             pharmacypg.enterAddress('6067 braylin ln, castle pines,co')
@@ -227,7 +229,7 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
             pharmacypg.clickAddressradio()
             cy.wait(1000)
             pharmacypg.enterAddress('qddff')
@@ -242,7 +244,7 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
             pharmacypg.clickAddressradio()
             cy.wait(1000)
             pharmacypg.enterAddress('')
@@ -257,7 +259,7 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
             pharmacypg.enterZipcode('80108') 
@@ -276,7 +278,7 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
             pharmacypg.enterZipcode('80108') 
@@ -296,7 +298,7 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
             pharmacypg.enterZipcode('12345') 
@@ -313,7 +315,7 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
             pharmacypg.enterZipcode('50000') 
@@ -331,7 +333,7 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
             pharmacypg.enterZipcode('50000') 
@@ -351,7 +353,7 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
             pharmacypg.enterZipcode('80108') 
@@ -366,7 +368,7 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
             pharmacypg.enterZipcode('80108') 
@@ -382,7 +384,7 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
             pharmacypg.enterZipcode('80108') 
@@ -399,7 +401,7 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
             pharmacypg.enterZipcode('80108') 
@@ -417,7 +419,7 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
             pharmacypg.enterZipcode('80108')     
@@ -436,7 +438,7 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
             pharmacypg.enterZipcode('80108')      
@@ -455,7 +457,7 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
             pharmacypg.enterZipcode('80108')      
@@ -476,7 +478,7 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
             pharmacypg.enterZipcode('80108')      
@@ -498,7 +500,7 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
             pharmacypg.enterZipcode('80108')      
@@ -516,7 +518,8 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
+
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
             pharmacypg.enterZipcode('80108')      
@@ -541,7 +544,7 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
             pharmacypg.enterZipcode('80108')      
@@ -572,7 +575,8 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
+
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
             pharmacypg.enterZipcode('80108')      
@@ -591,7 +595,8 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
+
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
             pharmacypg.enterZipcode('80108')      
@@ -610,7 +615,8 @@ describe('PharmacyTest', () => {
             const drugPage = new PrescriptionPage();
             drugPage.clickDoneAddingDrug()
 
-            const pharmacypg = new PharmacyPage
+            const pharmacypg = new PharmacyPage();
+            
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
             pharmacypg.enterZipcode('80108')      
